@@ -1,0 +1,56 @@
+<template>
+    <div class="custom-border slds-p-around_large">
+        <div class="top-panel">
+
+            <div class="info-search-panel slds-p-around_medium">
+                <lightning-layout>
+                    <lightning-layout-item size="9">
+                        <div class="slds-text-heading_large">
+                            {searchedLocation}
+                        </div>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="3">
+                        <div onfetchweatherdata={getDataForNewSearch}>
+                            <c-weather-location-search records={historicalSearches}
+                                                       class="searchBox"></c-weather-location-search>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+
+            <div class="current-location-details slds-p-around_medium">
+                <template if:true={isLoaded}>
+                    <lightning-layout>
+                        <lightning-layout-item size=8 class="today-details details-border slds-p-left_large ">
+                            <c-weather-location-details
+                                    current-conditions={currentConditions}></c-weather-location-details>
+                        </lightning-layout-item>
+                        <lightning-layout-item size=2 class="next-day-details slds-text-align_center details-border">
+                            <c-weather-icon day-data={infoTomorrow} label="Tomorrow"></c-weather-icon>
+                        </lightning-layout-item>
+                        <lightning-layout-item size=2 class="next-2-days-details slds-text-align_center details-border">
+                            <c-weather-icon day-data={infoDayAfterTomorrow} label="Day After"></c-weather-icon>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </div>
+        </div>
+
+        <div class="charts slds-p-top_large">
+            <template if:true={isLoaded}>
+                <c-weather-custom-tab hour-by-hour-data={hourByHourChartData}
+                                      searched-location={searchedLocation}></c-weather-custom-tab>
+                <div class="slds-var-p-around_xx-large">
+                    <c-map map-markers={mapMarkers}></c-map>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <template if:true={showSpinner}>
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+</template>

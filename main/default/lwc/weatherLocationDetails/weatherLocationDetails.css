@@ -1,0 +1,8 @@
+.info-label {
+    position: relative;
+    top: -7px;
+}
+
+.big-temp {
+    font-size: 3rem;
+}

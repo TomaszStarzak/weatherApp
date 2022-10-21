@@ -1,0 +1,27 @@
+.top-panel  {
+    background-color: rgb(27, 71, 120);
+    color: white;
+}
+
+.custom-border {
+    padding-top: 10rem;
+}
+
+.details-border {
+    outline: 1px solid #355e8e;
+    outline-offset: -4px
+}
+
+.current-location-details {
+    background-color: rgb(34, 79, 131);
+    color: white;
+}
+
+.searchBox {
+    color: black;
+}
+
+.slds-tabs_scoped__item {
+    width:33%;
+    color: red;
+}

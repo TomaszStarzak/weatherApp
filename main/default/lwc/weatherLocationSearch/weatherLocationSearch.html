@@ -1,0 +1,60 @@
+<template>
+
+    <div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div id="box"
+                         class={boxClass}
+                         aria-expanded="true"
+                         aria-haspopup="listbox"
+                         role="combobox">
+
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                             role="none">
+                            <div class="slds-p-top_none">
+                                <lightning-input class={inputClass}
+                                                 type="search"
+                                                 id="input"
+                                                 value={searchTerm}
+                                                 onclick={handleClick}
+                                                 onblur={onBlur}
+                                                 onchange={onChange}
+                                                 onkeyup={handleKeyUp}
+                                                 variant="label-hidden"
+                                                 autocomplete="off"
+                                                 placeholder={searchPlaceholder}>
+                                </lightning-input>
+                            </div>
+                        </div>
+
+                        <template if:true={records}>
+
+                            <div id="listbox-id-1"
+                                 class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid"
+                                 role="listbox">
+                                <ul class="slds-listbox slds-listbox_vertical"
+                                    role="presentation">
+                                    <template for:each={records} for:item="rec">
+                                        <li key={rec.index}
+                                            onclick={onSelect}
+                                            data-id={rec.index}
+                                            role="presentation"
+                                            data-name={rec.searchTerm}
+                                        >
+                                            <span class="slds-lookup__item-action" role="option">
+                                                <span class="slds-truncate">{rec.searchTerm}</span>
+                                            </span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

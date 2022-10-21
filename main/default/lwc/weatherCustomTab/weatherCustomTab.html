@@ -1,0 +1,28 @@
+<template>
+
+    <template if:true={showSpinner}>
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+
+    <lightning-tabset active-tab-value="one">
+
+        <lightning-tab label="Hour by hour" value="one">
+            <c-weather-chart chart-data={hourByHourData}></c-weather-chart>
+        </lightning-tab>
+
+        <lightning-tab label="Next week" onactive={fetchNext7DaysData} value="two">
+            <template if:true={isNextDaysLoaded}>
+                <c-weather-chart is-daily-chart=true chart-data={next7DaysData} ></c-weather-chart>
+            </template>
+        </lightning-tab>
+
+        <lightning-tab label="Last week" onactive={fetchLast7DaysData} value="3">
+            <template if:true={isLastDaysLoaded}>
+                <c-weather-chart is-daily-chart=true chart-data={last7DaysData}></c-weather-chart>
+            </template>
+        </lightning-tab>
+
+    </lightning-tabset>
+</template>

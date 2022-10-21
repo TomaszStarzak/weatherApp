@@ -1,0 +1,35 @@
+<template>
+    <c-chart type="bar" responsive="true" aspectratio="4">
+        <c-line-configuration
+                borderwidth="3"
+                bordercolor="rgba(0, 0, 0.2)"
+        ></c-line-configuration>
+        <c-dataset labels={horXLabels}>
+            <c-data yaxisid="temperature" label="Min" detail={tempMin} backgroundcolor="rgb(109, 204, 236)"
+                    type="line"
+                    bordercolor="rgb(109, 204, 236)" fill="false"></c-data>
+            <c-data yaxisid="temperature" label="Max" detail={tempMax} backgroundcolor="rgba(82, 183, 216, 0.2)"
+                    type="line"
+                    bordercolor="red" fill="false"></c-data>
+            <c-data yaxisid="temperature" label="Temp" detail={temp} backgroundcolor="rgba(82, 183, 216, 0.2)"
+                    type="line"
+                    bordercolor="green" fill="false"></c-data>
+            <c-data yaxisid="temperature" label="Fell like" detail={feelsLikeMax} backgroundcolor="orange"
+                    type="line"
+                    bordercolor="orange" fill="false"></c-data>
+            <c-data yaxisid="rain" label="Rain" detail={rains}
+                    backgroundcolor="rgb(4, 139, 179)"
+                    bordercolor="rgb(4, 139, 179)" fill="false"></c-data>
+        </c-dataset>
+
+        <c-title text="Multiple axes with different scales"></c-title>
+        <c-cartesian-axis axis="x" position="bottom" type="category"></c-cartesian-axis>
+        <c-cartesian-linear-axis axisid="temperature" axis="y" position="left" ticks-stepsize="2"
+                                 title-labelstring="Temperature"
+                                 title-display="true"></c-cartesian-linear-axis>
+        <c-cartesian-linear-axis axisid="rain" axis="y" position="right" ticks-stepsize="5"
+                                 title-labelstring="Rain"
+                                 display="none"
+                                 title-display="true"></c-cartesian-linear-axis>
+    </c-chart>
+</template>

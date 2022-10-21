@@ -1,0 +1,43 @@
+<template>
+
+    <lightning-layout class="compact-header slds-p-bottom_medium info-label">
+        <lightning-layout-item size=2>
+            <p class="slds-p-left_small">Weather now at:</p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size=1>
+            {_dateTime} h
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout class="todays-info">
+        <lightning-layout-item size=4>
+            <lightning-layout>
+                <lightning-layout-item size=3>
+                    <c-weather-icon condition={todayCondition}></c-weather-icon>
+                </lightning-layout-item>
+
+                <lightning-layout-item size=8>
+                    <p class="big-temp">{_temperature} °C</p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+
+        <lightning-layout-item size=2>
+            <p class="slds-text-heading_medium">{_status}</p>
+            <p>FELLS LIKE</p>
+            <p>{_fellLike} °C</p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size=2>
+            <p class="slds-p-top_large">PRESSURE</p>
+            <p>{_pressure} hPa</p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size=2>
+            <p class="slds-p-top_large">WIND</p>
+            <p>{_wind} km/h</p>
+        </lightning-layout-item>
+
+    </lightning-layout>
+</template>

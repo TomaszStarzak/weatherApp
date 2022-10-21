@@ -1,0 +1,13 @@
+.pillSize{
+    width : 350px;
+    color: cornflowerblue;
+    --slds-c-pill-radius-border :0
+}
+
+.slds-modal__content{
+    overflow: initial;
+}
+
+.slds-pill-container{
+    height: 35px;
+}
